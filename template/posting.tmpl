@@ -1,0 +1,26 @@
+{{define "posting"}}
+<div class="max post mt-4">
+    <div class="post-likes">
+        <strong>{{.username}}</strong>
+        <p>{{.date}}</p>
+    </div>
+    <img class="image-style mx-auto d-block" src="{{.path}}" alt="" />
+    <div class="post-likes">
+        {{if eq .likenumber .zero}}
+        <strong>Gef&auml;llt keinem</strong> {{else if eq .likenumber .one}}
+        <strong>Gef&auml;llt einer Person</strong> {{else}}
+        <strong>Gef&auml;llt {{.likenumber}} Leuten</strong> {{end}}
+    </div>
+    <div class="post-desc">
+        {{.description}}
+    </div>
+
+    <div class="post-comment">
+        {{range .comments}}
+        <div class="mt-1">
+            <strong>{{.username}}</strong> {{.text}}
+        </div>
+        {{else}} Keine Kommentare {{end}}
+    </div>
+</div>
+{{end}}

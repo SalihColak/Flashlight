@@ -1,0 +1,17 @@
+{{define "userNav"}}
+<div class="mt-4 max">
+    <div class="row justify-content-between">
+        <div class="col-4 ml-small">
+            <strong>{{.Username}}</strong><br />
+            <a id="logout" href="/logout">Logout</a>
+        </div>
+
+        <div class="col bg main">
+            <a href="/bilder" class="btn-style bg-main btn">Meine Bilder</a>
+        </div>
+        <div class="col-2 mr-small min-width bg main">
+            <a href="/upload" class="btn btn-style bg-main"> <i class="fa fa-plus"></i></a>
+        </div>
+    </div>
+</div>
+{{end}}

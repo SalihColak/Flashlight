@@ -1,0 +1,48 @@
+{{define "postingLogged"}}
+<div class="max post mt-4">
+    <div class="container-fluid">
+        <div class="row justify-content-between post-info">
+            <div class="col">
+                <strong>{{.username}}</strong>
+                <p>{{.date}}</p>
+            </div>
+            <div class="col-3 min-width">
+                {{if .userliked}}
+                <a href="/del-like?postingid={{._id}}" id="like" class="btn btn-liked btn-style"><i class="fa fa-heart"></i></a> {{else}}
+                <a href="/add-like?postingid={{._id}}" id="like" class="btn btn-not-liked btn-style"><i class="fa fa-heart"></i></a> {{end}}
+            </div>
+        </div>
+    </div>
+
+    <img class="image-style mx-auto d-block" src="{{.path}}" alt="" />
+    <div class="post-likes">
+        {{if eq .likenumber .zero}}
+        <strong>Gef&auml;llt keinem</strong> {{else if eq .likenumber .one}}
+        <strong>Gef&auml;llt einer Person</strong> {{else}}
+        <strong>Gef&auml;llt {{.likenumber}} Leuten</strong> {{end}}
+    </div>
+    <div class="post-desc">
+        {{.description}}
+    </div>
+
+    <div class="post-comment">
+        {{range .comments}}
+        <div class="mt-1">
+            <strong>{{.username}}</strong> {{.text}}
+        </div>
+        {{else}} Keine Kommentare {{end}}
+    </div>
+    <div class="container-fluid">
+        <div class="add-comment">
+            <form class="row " action="/add-comment?postingid={{._id}}" method="POST">
+                <div class="col">
+                    <input name="newcomment" type="text" placeholder="Kommentieren" class="kommentieren" minlength="1" required/>
+                </div>
+                <div class="col-2 min-width">
+                    <button id="addComment" class="btn btn-style bg-send"><i class="fa fa-paper-plane"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{{end}}

@@ -1,0 +1,34 @@
+{{define "postingSmall"}}
+<div class="col-6 mb-4">
+    <div class="post-small">
+        <div class="post-time text-center">
+            <p>{{.date}}</p>
+        </div>
+        <img class="image-style-small mx-auto d-block" src="{{.path}}" alt="" />
+        <div class="post-like-comment">
+            <div class="row justify-content-around container no-gutters">
+                <div class="col-6 row justify-content-center no-gutters">
+                    <div class="col-4 ">
+                        <i class="fa fa-heart"></i>
+                    </div>
+                    <div class="col-4">
+                        <p>{{.likenumber}}</p>
+                    </div>
+
+                </div>
+                <div class="col-6 row justify-content-center no-gutters">
+                    <div class="col-4 ">
+                        <i class="fa fa-comment"></i>
+                    </div>
+                    <div class="col-4">
+                        <p>{{.commentnumber}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="post-delete text-center">
+            <a href="delete-posting?_id={{._id}}" class="btn btn-loeschen"><i class="far fa-trash-alt"></i> Löschen</a>
+        </div>
+    </div>
+</div>
+{{end}}
